@@ -1,65 +1,42 @@
-import { View, Text, StyleSheet, ScrollView, Platform } from "react-native";
-import React, { useState } from "react";
-import { DateTimePicker } from "@react-native-community/datetimepicker";
-import CustomInput from "../../components/CustomInput";
-import CustomButton from "../../components/CustomButton";
+import { Pressable, StyleSheet, Text, View } from "react-native";
+import React from "react";
+import { AntDesign } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 
 const ConfirmEmailScreen = () => {
-  const [number, setNumber] = useState("");
-
   const navigation = useNavigation();
 
-  const onConfirmPressed = () => {
-    navigation.navigate("HomeScreen");
-  };
-
-  const onSignInPressed = () => {
+  const onArrowPressed = () => {
     navigation.navigate("Signin");
   };
-
   return (
     <View style={styles.container}>
-      <View style={[{ padding: 10, alignSelf: "stretch" }]}>
-        <Text style={styles.title}> Enter Phone Number</Text>
-        <CustomInput
-          placeholder="Enter Your Phone Number"
-          value={number}
-          setValue={setNumber}
-        />
-      </View>
-
-      <CustomButton text="Confirm" onPress={onConfirmPressed} />
-
-      <CustomButton
-        text="Back to Sign In"
-        onPress={onSignInPressed}
-        bgColor="#F0FEFF"
-        fgColor="grey"
-      />
+      <Text style={styles.text}>I am a </Text>
+      <Pressable
+        style={[{ backgroundColor: "darkgrey", borderRadius: 5 }]}
+        onPress={onArrowPressed}>
+        <AntDesign name="arrowright" size={24} color="grey" />
+      </Pressable>
     </View>
   );
 };
 
+export default ConfirmEmailScreen;
+
 const styles = StyleSheet.create({
   container: {
-    alignItems: "flex-start",
-    padding: 20,
-    backgroundColor: "#111111",
+    alignItems: "center",
+    padding: 25,
+    backgroundColor: "black",
     flex: 1,
+    justifyContent: "center",
   },
+
   text: {
-    color: "grey",
-    marginVertical: 20,
-  },
-  link: {
-    color: "#dc0c54",
-  },
-  title: {
+    color: "#fff",
+    marginVertical: 15,
+    marginHorizontal: 20,
+    lineHeight: 20,
     fontSize: 16,
-    fontWeight: "bold",
-    color: "white",
   },
 });
-
-export default ConfirmEmailScreen;

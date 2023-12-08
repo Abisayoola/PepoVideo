@@ -1,62 +1,114 @@
-import { View, Text, SafeAreaView, StyleSheet } from "react-native";
+import { View, Text, SafeAreaView, StyleSheet, Pressable } from "react-native";
 import React from "react";
 import CustomButton from "../../components/CustomButton";
+import { MaterialCommunityIcons, Entypo } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
-import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 
-const LoadingScreen = () => {
+const ConnectingScreen = () => {
   const navigation = useNavigation();
   const onGenderPressed = () => {
     console.warn("gender");
   };
   const onCountryPressed = () => {
-    navigation.navigate("ConnectingScreen");
-  };
-  const onDiamondPressed = () => {
-    console.warn("diamond");
+    console.warn("country");
   };
 
   return (
     <View style={styles.container}>
       <View style={styles.CameraPreview}>
-        <Text
-          style={{
-            color: "white",
-            fontWeight: "bold",
-            textAlign: "center",
-            padding: 55,
-          }}>
-          We've activated our AI-driven safe mode to ensure you have a pleasant
-          match! Your next match is being set up...
+        <Text style={[{ paddingBottom: 20, color: "white", fontSize: 16 }]}>
+          {" "}
+          New Match Coming Up...
         </Text>
-        <MaterialIcons name="emoji-emotions" size={100} color={"#FE8665"} />
+        <View
+          style={[
+            {
+              backgroundColor: "#fff",
+              width: "80%",
+              height: 450,
+              borderRadius: 20,
+              alignItems: "center",
+              justifyContent: "center",
+              padding: 10,
+            },
+          ]}>
+          <Text
+            style={{
+              fontSize: 80,
+            }}>
+            {" "}
+            AD{" "}
+          </Text>
+        </View>
       </View>
       <View>
         <View style={styles.iconsContainer}>
-          <View style={[{ marginRight: 10 }]}>
-            <CustomButton
-              text="Gender"
-              onPress={onGenderPressed}
-              bgColor="#F0FEFF"
-              fgColor="black"
+          <Pressable
+            style={{
+              flexDirection: "row",
+              justifyContent: "space-between",
+              backgroundColor: "#232323",
+              paddingHorizontal: 14,
+              paddingVertical: 10,
+              borderRadius: 32,
+              marginBottom: 12,
+              alignItems: "center",
+            }}
+            onPress={onGenderPressed}>
+            <View
+              style={{ flexDirection: "row", justifyContent: "flex-start" }}>
+              <MaterialCommunityIcons
+                name="human-female"
+                size={24}
+                color="pink"
+              />
+              <MaterialCommunityIcons
+                name="human-male"
+                size={24}
+                color="#00CDD7"
+              />
+            </View>
+            <View>
+              <Text
+                style={{
+                  fontSize: 16,
+
+                  color: "#fff",
+                }}>
+                Gender
+              </Text>
+            </View>
+          </Pressable>
+          <Pressable
+            style={{
+              flexDirection: "row",
+              justifyContent: "space-evenly",
+              backgroundColor: "#232323",
+              paddingHorizontal: 14,
+              paddingVertical: 10,
+              borderRadius: 32,
+              marginBottom: 12,
+              alignItems: "stretch",
+            }}
+            onPress={() => navigation.navigate("ConnectingScreen")}>
+            <Entypo
+              name="globe"
+              size={24}
+              color="#00CDD7"
+              style={{ paddingHorizontal: 5 }}
             />
-          </View>
-          <View style={[{}]}>
-            <CustomButton
-              text="Country"
-              onPress={onCountryPressed}
-              bgColor="#F0FEFF"
-              fgColor="black"
-            />
-          </View>
-          <View style={[{}]}>
-            <CustomButton
-              text="7"
-              onPress={onCountryPressed}
-              bgColor="#F0FEFF"
-              fgColor="black"
-            />
-          </View>
+
+            <View>
+              <Text
+                style={{
+                  fontSize: 16,
+
+                  color: "#fff",
+                }}>
+                Country
+              </Text>
+            </View>
+          </Pressable>
         </View>
       </View>
     </View>
@@ -66,23 +118,23 @@ const LoadingScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#0d6345",
+    backgroundColor: "#00CDD7",
   },
   CameraPreview: {
     flex: 1,
     alignItems: "center",
-    backgroundColor: "#0d6345",
+    backgroundColor: "#00CDD7",
     padding: 10,
     justifyContent: "center",
   },
   iconsContainer: {
     borderTopLeftRadius: 30,
     borderTopRightRadius: 30,
-    backgroundColor: "#F0FEFF",
+    backgroundColor: "#000",
     padding: 30,
     flexDirection: "row",
-    justifyContent: "space-between",
+    justifyContent: "space-around",
   },
 });
 
-export default LoadingScreen;
+export default ConnectingScreen;

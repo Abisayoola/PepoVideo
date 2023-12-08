@@ -6,76 +6,58 @@ import {
   useWindowDimensions,
   ScrollView,
   Pressable,
-} from 'react-native';
-import React, { useState } from 'react';
-import logo from '../../../assets/images/logo.png';
+} from "react-native";
+import React, { useState } from "react";
+import logo from "../../../assets/images/logo.png";
 
-import { useNavigation } from '@react-navigation/native';
-import { MaterialCommunityIcons, Zocial } from '@expo/vector-icons';
-// import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
-import Ionicons from 'react-native-vector-icons/Ionicons';
+import { useNavigation } from "@react-navigation/native";
+import { MaterialCommunityIcons, Zocial, AntDesign } from "@expo/vector-icons";
 
 const SigninScreen = () => {
-  const [phonenumber, setphonenumber] = useState('');
-
-  const [password, setpassword] = useState('');
-
   const height = useWindowDimensions();
   const navigation = useNavigation();
 
-  const onSignInPressed = () => {
-    // validate user
-
-    navigation.navigate('SignUp');
-  };
-
   const onSignInFacbook = () => {
-    console.warn('Facebook');
+    console.warn("Facebook");
   };
   const onSignInGoogle = () => {
-    console.warn('Google');
+    console.warn("Google");
   };
   const onSignInApple = () => {
-    console.warn('Apple');
+    console.warn("Apple");
   };
   const onForgotPasswordPressed = () => {
-    navigation.navigate('ResetPassword');
+    navigation.navigate("ResetPassword");
   };
   const onSignUpPressed = () => {
-    navigation.navigate('SignUp');
+    navigation.navigate("SignUp");
   };
 
   return (
     <ScrollView backgroundColor="#F0FEFF">
       <View style={styles.container}>
         <Image source={logo} style={[styles.logo]} />
-        <View style={[{ width: '80%' }]}>
+        <View style={[{ width: "80%" }]}>
           <Pressable
             style={{
-              flexDirection: 'row',
-              justifyContent: 'space-between',
-              backgroundColor: '#000',
+              flexDirection: "row",
+              justifyContent: "space-between",
+              backgroundColor: "#000",
               paddingHorizontal: 14,
               paddingVertical: 12,
               borderRadius: 32,
               marginBottom: 12,
-              alignItems: 'center',
+              alignItems: "center",
             }}
-            onPress={() => navigation.navigate('SignUp')}
-          >
-            <MaterialCommunityIcons
-              name="cellphone"
-              size={24}
-              color="#fff"
-            />
+            onPress={() => navigation.navigate("SignUp")}>
+            <MaterialCommunityIcons name="cellphone" size={24} color="#fff" />
             <View>
               <Text
                 style={{
                   fontSize: 16,
-                  fontWeight: 'bold',
-                  color: '#fff',
-                }}
-              >
+                  fontWeight: "bold",
+                  color: "#fff",
+                }}>
                 Use phone number
               </Text>
             </View>
@@ -84,54 +66,81 @@ const SigninScreen = () => {
 
           <Pressable
             style={{
-              flexDirection: 'row',
-              justifyContent: 'space-between',
-              backgroundColor: '#1877F2',
+              flexDirection: "row",
+              justifyContent: "space-between",
+              backgroundColor: "#1877F2",
               paddingHorizontal: 14,
               paddingVertical: 10,
               borderRadius: 32,
               marginBottom: 12,
-              alignItems: 'center',
+              alignItems: "center",
             }}
-          >
+            onPress={() => navigation.navigate("SignUp")}>
             <Zocial name="facebook" size={24} color="#fff" />
             <View>
               <Text
                 style={{
                   fontSize: 16,
-                  fontWeight: 'bold',
-                  color: '#fff',
-                }}
-              >
+                  fontWeight: "bold",
+                  color: "#fff",
+                }}>
                 Connect with Facebook
               </Text>
             </View>
             <View />
           </Pressable>
 
-          <View style={[{ paddingBottom: 10 }]}>
-            <Ionicons.Button
-              name="logo-google"
-              borderRadius={50}
-              color={'black'}
-              backgroundColor="white"
-              onPress={onSignInGoogle}
-            >
-              Connect with Google
-            </Ionicons.Button>
-          </View>
+          <Pressable
+            style={{
+              flexDirection: "row",
+              justifyContent: "space-between",
+              backgroundColor: "#fff",
+              paddingHorizontal: 14,
+              paddingVertical: 12,
+              borderRadius: 32,
+              marginBottom: 12,
+              alignItems: "center",
+            }}
+            onPress={() => navigation.navigate("SignUp")}>
+            <AntDesign name="google" size={24} color="#000" />
+            <View>
+              <Text
+                style={{
+                  fontSize: 16,
+                  fontWeight: "bold",
+                  color: "#000",
+                }}>
+                Connect with Google
+              </Text>
+            </View>
+            <View />
+          </Pressable>
 
-          <View style={[{ paddingBottom: 10 }]}>
-            <Ionicons.Button
-              name="logo-apple"
-              borderRadius={50}
-              color={'black'}
-              backgroundColor="white"
-              onPress={onSignInApple}
-            >
-              Sign in with Apple
-            </Ionicons.Button>
-          </View>
+          <Pressable
+            style={{
+              flexDirection: "row",
+              justifyContent: "space-between",
+              backgroundColor: "#fff",
+              paddingHorizontal: 14,
+              paddingVertical: 12,
+              borderRadius: 32,
+              marginBottom: 12,
+              alignItems: "center",
+            }}
+            onPress={() => navigation.navigate("SignUp")}>
+            <AntDesign name="apple1" size={24} color="#000" />
+            <View>
+              <Text
+                style={{
+                  fontSize: 16,
+                  fontWeight: "bold",
+                  color: "#000",
+                }}>
+                Sign in with Apple
+              </Text>
+            </View>
+            <View />
+          </Pressable>
         </View>
       </View>
     </ScrollView>
@@ -140,13 +149,15 @@ const SigninScreen = () => {
 
 const styles = StyleSheet.create({
   container: {
-    alignItems: 'center',
+    alignItems: "center",
+
     padding: 20,
-    backgroundColor: '#F0FEFF',
+    backgroundColor: "#F0FEFF",
   },
   logo: {
-    width: '100%',
-    height: '100%',
+    width: "100%",
+    height: "100%",
+    margin: 1,
   },
 });
 

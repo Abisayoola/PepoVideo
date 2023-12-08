@@ -1,8 +1,8 @@
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, Pressable } from "react-native";
 import React, { useState } from "react";
-
 import ReactionIconContainer from "../../components/ReactionIconContainer/ReactionIconContainer";
-import ChatInputContainer from "../../components/ChatInputContainer";
+import CustomInput from "../../components/CustomInput/CustomInput";
+import { AntDesign } from "@expo/vector-icons";
 
 const VideoChatScreen = () => {
   const [chat, setChat] = useState("");
@@ -11,7 +11,86 @@ const VideoChatScreen = () => {
     <View style={styles.page}>
       <View style={styles.CameraPreview}></View>
       <View style={[{ marginTop: "auto" }]}>
-        <ChatInputContainer />
+        <View
+          style={{
+            flexDirection: "row",
+            paddingHorizontal: 20,
+            justifyContent: "space-between",
+          }}>
+          <View
+            style={{
+              alignItems: "stretch",
+              alignContent: "stretch",
+              flex: 1,
+            }}>
+            <CustomInput placeholder="Start chat" />
+          </View>
+          <View style={{ flexDirection: "row" }}>
+            <Pressable
+              style={{
+                backgroundColor: "#232323",
+                marginHorizontal: 5,
+
+                borderRadius: 100,
+                padding: 10,
+              }}>
+              <AntDesign
+                name="sync"
+                size={16}
+                color="black"
+                style={{ paddingHorizontal: 5 }}
+              />
+            </Pressable>
+
+            <Pressable
+              style={{
+                backgroundColor: "#232323",
+
+                borderRadius: 100,
+                padding: 10,
+                marginHorizontal: 5,
+              }}>
+              <AntDesign
+                name="sync"
+                size={16}
+                color="black"
+                style={{ paddingHorizontal: 5 }}
+              />
+            </Pressable>
+
+            <Pressable
+              style={{
+                backgroundColor: "#232323",
+
+                borderRadius: 100,
+                padding: 10,
+                marginHorizontal: 5,
+              }}>
+              <AntDesign
+                name="sync"
+                size={16}
+                color="black"
+                style={{ paddingHorizontal: 5 }}
+              />
+            </Pressable>
+
+            <Pressable
+              style={{
+                backgroundColor: "#232323",
+
+                borderRadius: 100,
+                padding: 10,
+                marginHorizontal: 5,
+              }}>
+              <AntDesign
+                name="sync"
+                size={16}
+                color="black"
+                style={{ paddingHorizontal: 5 }}
+              />
+            </Pressable>
+          </View>
+        </View>
         <ReactionIconContainer />
       </View>
     </View>

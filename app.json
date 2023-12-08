@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "PepoVideo",
-    "slug": "PepoVideo",
+    "slug": "pepovideo",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -15,17 +15,31 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.abisayo.pepovideo"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.abisayo.pepovideo"
     },
     "web": {
       "favicon": "./assets/favicon.png"
     },
-    "description": ""
+    "description": "",
+    "extra": {
+      "eas": {
+        "projectId": "69c3adc8-cb76-4975-917a-d4bdccf8bd77"
+      }
+    },
+    "owner": "abisayo",
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/69c3adc8-cb76-4975-917a-d4bdccf8bd77"
+    }
   }
 }

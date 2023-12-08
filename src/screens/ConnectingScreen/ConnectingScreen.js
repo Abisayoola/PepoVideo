@@ -1,18 +1,16 @@
-import { View, Text, SafeAreaView, StyleSheet } from "react-native";
+import { View, Text, SafeAreaView, StyleSheet, Pressable } from "react-native";
 import React from "react";
 import CustomButton from "../../components/CustomButton";
-
-import MaterialIcons from "react-native-vector-icons/MaterialIcons";
+import { MaterialCommunityIcons, Entypo } from "@expo/vector-icons";
+import { useNavigation } from "@react-navigation/native";
 
 const ConnectingScreen = () => {
+  const navigation = useNavigation();
   const onGenderPressed = () => {
     console.warn("gender");
   };
   const onCountryPressed = () => {
-    console.warn("country");
-  };
-  const onDiamondPressed = () => {
-    console.warn("diamond");
+    console.warn("gender");
   };
 
   return (
@@ -25,50 +23,118 @@ const ConnectingScreen = () => {
         <View
           style={[
             {
-              backgroundColor: "#A6958C",
+              backgroundColor: "#FF77BF",
               width: "80%",
-              height: 500,
-              borderRadius: 20,
-              borderWidth: 1,
-              borderColor: "lightgreen",
-              padding: 10,
+              height: 450,
+              borderRadius: 30,
+              padding: 20,
+              justifyContent: "space-between",
             },
           ]}>
-          <Text style={[{ color: "white", fontSize: 20 }]}> Khan baba</Text>
-          <Text style={[{ color: "white", fontSize: 16 }]}>
-            {" "}
-            Sheffield, United Kingdom
-          </Text>
-          <Text style={[{ color: "white", fontSize: 16 }]}> English</Text>
-          <Text style={[{ color: "white", fontSize: 16 }]}> #stayathome</Text>
+          <View>
+            <View
+              style={{
+                backgroundColor: "#000",
+                borderRadius: 50,
+                padding: 10,
+                alignSelf: "flex-start",
+                alignItems: "center",
+                paddingHorizontal: 40,
+              }}>
+              <Text style={{ color: "#fff" }}>Username</Text>
+            </View>
+            <Text style={{ color: "#fff" }}>
+              Location, Country {"\n"}Language{" "}
+            </Text>
+          </View>
+          <View style={{ justifyContent: "center" }}>
+            <Text
+              style={{
+                fontSize: 40,
+              }}>
+              {" "}
+              Profile Picture{" "}
+            </Text>
+          </View>
+
+          <View
+            style={{
+              justifyContent: "flex-end",
+              alignSelf: "center",
+              marginBottom: 10,
+            }}>
+            <Text> A small BIO right here</Text>
+          </View>
         </View>
       </View>
       <View>
         <View style={styles.iconsContainer}>
-          <View style={[{ marginRight: 10 }]}>
-            <CustomButton
-              text="Gender"
-              onPress={onGenderPressed}
-              bgColor="#F0FEFF"
-              fgColor="black"
+          <Pressable
+            style={{
+              flexDirection: "row",
+              justifyContent: "space-between",
+              backgroundColor: "#232323",
+              paddingHorizontal: 14,
+              paddingVertical: 10,
+              borderRadius: 32,
+              marginBottom: 12,
+              alignItems: "center",
+            }}
+            onPress={onGenderPressed}>
+            <View
+              style={{ flexDirection: "row", justifyContent: "flex-start" }}>
+              <MaterialCommunityIcons
+                name="human-female"
+                size={24}
+                color="pink"
+              />
+              <MaterialCommunityIcons
+                name="human-male"
+                size={24}
+                color="#00CDD7"
+              />
+            </View>
+            <View>
+              <Text
+                style={{
+                  fontSize: 16,
+
+                  color: "#fff",
+                }}>
+                Gender
+              </Text>
+            </View>
+          </Pressable>
+          <Pressable
+            style={{
+              flexDirection: "row",
+              justifyContent: "space-evenly",
+              backgroundColor: "#232323",
+              paddingHorizontal: 14,
+              paddingVertical: 10,
+              borderRadius: 32,
+              marginBottom: 12,
+              alignItems: "stretch",
+            }}
+            onPress={() => navigation.navigate("VideoChatScreen")}>
+            <Entypo
+              name="globe"
+              size={24}
+              color="#00CDD7"
+              style={{ paddingHorizontal: 5 }}
             />
-          </View>
-          <View style={[{}]}>
-            <CustomButton
-              text="Country"
-              onPress={onCountryPressed}
-              bgColor="#F0FEFF"
-              fgColor="black"
-            />
-          </View>
-          <View style={[{}]}>
-            <CustomButton
-              text="7"
-              onPress={onCountryPressed}
-              bgColor="#F0FEFF"
-              fgColor="black"
-            />
-          </View>
+
+            <View>
+              <Text
+                style={{
+                  fontSize: 16,
+
+                  color: "#fff",
+                }}>
+                Country
+              </Text>
+            </View>
+          </Pressable>
         </View>
       </View>
     </View>
@@ -78,22 +144,22 @@ const ConnectingScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#0d6345",
+    backgroundColor: "#00CDD7",
   },
   CameraPreview: {
     flex: 1,
     alignItems: "center",
-    backgroundColor: "#0d6345",
+    backgroundColor: "#00CDD7",
     padding: 10,
     justifyContent: "center",
   },
   iconsContainer: {
     borderTopLeftRadius: 30,
     borderTopRightRadius: 30,
-    backgroundColor: "#F0FEFF",
+    backgroundColor: "#000",
     padding: 30,
     flexDirection: "row",
-    justifyContent: "space-between",
+    justifyContent: "space-around",
   },
 });
 

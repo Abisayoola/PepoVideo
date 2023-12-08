@@ -1,18 +1,19 @@
-import { View, Text, Pressable } from 'react-native';
-import React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import SigninScreen from '../screens/SigninScreen';
-import SignUpScreen from '../screens/SignUpScreen';
-import ConfirmEmailScreen from '../screens/ConfirmEmailScreen';
-import ResetPasswordScreen from '../screens/ResetPasswordScreen';
-import NewPasswordScreen from '../screens/NewPasswordScreen';
-import HomeScreen from '../screens/HomeScreen';
-import LoadingScreen from '../screens/LoadingScreen';
-import ConnectingScreen from '../screens/ConnectingScreen';
-import VideoChatScreen from '../screens/VideoChatScreen';
+import { View, Text, Pressable } from "react-native";
+import React from "react";
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import SigninScreen from "../screens/SigninScreen";
+import SignUpScreen from "../screens/SignUpScreen";
+import ConfirmEmailScreen from "../screens/ConfirmEmailScreen";
+import ResetPasswordScreen from "../screens/ResetPasswordScreen";
+import NewPasswordScreen from "../screens/NewPasswordScreen";
+import HomeScreen from "../screens/HomeScreen";
+import LoadingScreen from "../screens/LoadingScreen";
+import ConnectingScreen from "../screens/ConnectingScreen";
+import VideoChatScreen from "../screens/VideoChatScreen";
+import DmScreen from "../screens/DmScreen";
 
-import { AntDesign } from '@expo/vector-icons';
+import { AntDesign } from "@expo/vector-icons";
 
 const Stack = createNativeStackNavigator();
 
@@ -26,9 +27,9 @@ const Navigation = () => {
           component={SignUpScreen}
           options={({ navigation }) => ({
             headerShown: true,
-            headerTitle: '',
+            headerTitle: "",
             headerStyle: {
-              backgroundColor: '#000',
+              backgroundColor: "#000",
             },
             headerLeft: () => (
               <Pressable onPress={() => navigation.goBack()}>
@@ -37,31 +38,14 @@ const Navigation = () => {
             ),
           })}
         />
-        <Stack.Screen
-          name="ConfirmEmail"
-          component={ConfirmEmailScreen}
-        />
-        <Stack.Screen
-          name="ResetPassword"
-          component={ResetPasswordScreen}
-        />
-        <Stack.Screen
-          name="NewPassword"
-          component={NewPasswordScreen}
-        />
-        <Stack.Screen
-          name="LoadingScreen"
-          component={LoadingScreen}
-        />
-        <Stack.Screen
-          name="ConnectingScreen"
-          component={ConnectingScreen}
-        />
-        <Stack.Screen
-          name="VideoChatScreen"
-          component={VideoChatScreen}
-        />
+        <Stack.Screen name="ConfirmEmail" component={ConfirmEmailScreen} />
+        <Stack.Screen name="ResetPassword" component={ResetPasswordScreen} />
+        <Stack.Screen name="NewPassword" component={NewPasswordScreen} />
+        <Stack.Screen name="LoadingScreen" component={LoadingScreen} />
+        <Stack.Screen name="ConnectingScreen" component={ConnectingScreen} />
+        <Stack.Screen name="VideoChatScreen" component={VideoChatScreen} />
         <Stack.Screen name="HomeScreen" component={HomeScreen} />
+        <Stack.Screen name="DmScreen" component={DmScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

@@ -8,7 +8,7 @@ const BottomIconContainer = () => {
   const navigation = useNavigation();
 
   const onChatPressed = () => {
-    console.warn("chat");
+    navigation.navigate("DmScreen");
   };
 
   const onHomePressed = () => {

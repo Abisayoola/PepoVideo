@@ -5,15 +5,14 @@ import {
   ScrollView,
   Image,
   Pressable,
-} from 'react-native';
-import React, { useState } from 'react';
-import logoblack from '../../../assets/images/logoblack.jpg';
-import CheckBox from 'expo-checkbox';
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-import { Ionicons, Entypo } from '@expo/vector-icons';
+} from "react-native";
+import React, { useState } from "react";
+import logoblack from "../../../assets/images/logoblack.jpg";
+import CheckBox from "expo-checkbox";
+import { Ionicons, Entypo } from "@expo/vector-icons";
 
-import CustomButton from '../../components/CustomButton';
-import { useNavigation } from '@react-navigation/native';
+import CustomButton from "../../components/CustomButton";
+import { useNavigation } from "@react-navigation/native";
 
 const SignUpScreen = () => {
   const navigation = useNavigation();
@@ -21,19 +20,13 @@ const SignUpScreen = () => {
   const [accept, toggleAccept] = useState(false);
 
   const onAgreePressed = () => {
-    navigation.navigate('ConfirmEmail');
+    navigation.navigate("HomeScreen");
   };
   const onTermsofUsePressed = () => {
-    console.warn('Terms');
+    console.warn("Terms");
   };
   const onPrivacyPressed = () => {
-    console.warn('privacy');
-  };
-  const onCancelPressed = () => {
-    navigation.navigate('Signin');
-  };
-  const onAcceptPressed = () => {
-    console.warn('Accept All');
+    console.warn("privacy");
   };
 
   return (
@@ -48,31 +41,28 @@ const SignUpScreen = () => {
       <View
         style={[
           {
-            backgroundColor: '#222222',
+            backgroundColor: "#222222",
             padding: 20,
             borderRadius: 20,
             marginHorizontal: 24,
           },
-        ]}
-      >
+        ]}>
         <Text
           style={{
-            fontWeight: 'bold',
-            color: 'white',
+            fontWeight: "bold",
+            color: "white",
             fontSize: 14,
             marginBottom: 14,
-          }}
-        >
+          }}>
           To continue using PEPO, please agree to the following;
         </Text>
         <View
           style={[
             {
-              flexDirection: 'row',
-              alignItems: 'center',
+              flexDirection: "row",
+              alignItems: "center",
             },
-          ]}
-        >
+          ]}>
           <CheckBox
             style={styles.checkbox}
             e
@@ -80,7 +70,7 @@ const SignUpScreen = () => {
             onValueChange={setChecked}
           />
           <Text style={styles.text}>
-            I accept the {''}
+            I accept the {""}
             <Text style={styles.text} onPress={onTermsofUsePressed}>
               Terms of Service
             </Text>
@@ -90,11 +80,10 @@ const SignUpScreen = () => {
         <View
           style={[
             {
-              flexDirection: 'row',
-              alignItems: 'center',
+              flexDirection: "row",
+              alignItems: "center",
             },
-          ]}
-        >
+          ]}>
           <CheckBox
             style={styles.checkbox}
             e
@@ -102,7 +91,7 @@ const SignUpScreen = () => {
             onValueChange={setChecked}
           />
           <Text style={styles.text}>
-            I have read the {''}
+            I have read the {""}
             <Text style={styles.text} onPress={onPrivacyPressed}>
               Privacy Policy
             </Text>
@@ -112,11 +101,10 @@ const SignUpScreen = () => {
         <View
           style={[
             {
-              flexDirection: 'row',
-              alignItems: 'center',
+              flexDirection: "row",
+              alignItems: "center",
             },
-          ]}
-        >
+          ]}>
           <CheckBox
             style={styles.checkbox}
             e
@@ -124,7 +112,7 @@ const SignUpScreen = () => {
             onValueChange={setChecked}
           />
           <Text style={styles.text}>
-            I accept the {''}
+            I accept the {""}
             <Text style={styles.text} onPress={onTermsofUsePressed}>
               Cookie Policy
             </Text>
@@ -133,11 +121,10 @@ const SignUpScreen = () => {
         <View
           style={[
             {
-              flexDirection: 'row',
-              alignItems: 'center',
+              flexDirection: "row",
+              alignItems: "center",
             },
-          ]}
-        >
+          ]}>
           <CheckBox
             style={styles.checkbox}
             e
@@ -145,8 +132,8 @@ const SignUpScreen = () => {
             onValueChange={setChecked}
           />
           <Text style={styles.text}>
-            I consent to being contacted by Company about latest news
-            and special offers by email and push notification
+            I consent to being contacted by Company about latest news and
+            special offers by email and push notification
           </Text>
         </View>
         {/* <View
@@ -166,9 +153,9 @@ const SignUpScreen = () => {
         </View> */}
         <Pressable
           style={{
-            flexDirection: 'row',
-            alignItems: 'center',
-            backgroundColor: '#444444',
+            flexDirection: "row",
+            alignItems: "center",
+            backgroundColor: "#444444",
             marginTop: 30,
             paddingVertical: 18,
             paddingHorizontal: 14,
@@ -177,33 +164,22 @@ const SignUpScreen = () => {
           onPress={() => {
             setChecked(!isChecked);
             toggleAccept(!accept);
-          }}
-        >
+          }}>
           {accept ? (
-            <Ionicons
-              name="checkmark-circle-sharp"
-              size={23}
-              color="grey"
-            />
+            <Ionicons name="checkmark-circle-sharp" size={23} color="grey" />
           ) : (
             <Entypo name="circle" size={20} color="grey" />
           )}
 
-          <Text
-            style={{ color: '#fff', fontSize: 16, marginLeft: 14 }}
-          >
+          <Text style={{ color: "#fff", fontSize: 16, marginLeft: 14 }}>
             Accept all
           </Text>
         </Pressable>
       </View>
 
-      <View style={[{ width: '80%' }]}></View>
-      <View style={[{ width: '100%', marginVertical: 10 }]}>
-        <CustomButton
-          text="Agree"
-          onPress={onAgreePressed}
-          bgColor="#444444"
-        />
+      <View style={[{ width: "80%" }]}></View>
+      <View style={[{ width: "100%", marginVertical: 10 }]}>
+        <CustomButton text="Agree" onPress={onAgreePressed} bgColor="#444444" />
       </View>
     </View>
   );
@@ -211,14 +187,14 @@ const SignUpScreen = () => {
 
 const styles = StyleSheet.create({
   container: {
-    alignItems: 'center',
+    alignItems: "center",
     // padding: 25,
-    backgroundColor: 'black',
+    backgroundColor: "black",
     flex: 1,
     // justifyContent: 'center',
   },
   text: {
-    color: 'white',
+    color: "white",
     marginVertical: 15,
     marginHorizontal: 20,
     lineHeight: 20,
@@ -228,7 +204,7 @@ const styles = StyleSheet.create({
   logoblack: {
     width: 200,
     height: 100,
-    alignSelf: 'flex-start',
+    alignSelf: "flex-start",
     marginTop: 50,
   },
   checkbox: {
